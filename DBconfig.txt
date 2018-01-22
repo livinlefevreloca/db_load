@@ -1,0 +1,33 @@
+#!Python3
+#DBConfig.py - Script to intialize database schema described below
+
+# The Aerombcxreports DB schema is as follows:
+#   table 1 - buildings: Columns: ID serial PRIMARY KEY, FULL_ADDRESS varchar, BUILDING ENGINEER varchar
+#   table 2 - equipment: Columns: EQUIP_ID varchar PRIMARYKEY, EQUIP_TYPE varchar, BUILDING_ADDRESS varchar FOREIGN KEY
+#   leaf tables - each peice of equipment has its own table with its own columns: COLUMNS: (variable)
+
+# import os, psycopg2
+
+# #connect to DB and Create cursor
+# conn = psycopg2.connect(database=os.environ['DB'], user=os.environ['USER'], password=os.environ['PW'], host=os.environ['ENDPNT'] )
+# cur = conn.cursor();
+# #create buildings tables
+# cur.execute("CREATE TABLE buildings (id serial PRIMARY KEY,address varchar(75) UNIQUE, engineer varchar);")
+# #create table to hold equipment ids and referenc the building  they are in.
+# cur.execute("CREATE TABLE equipment (equipment_id varchar PRIMARY KEY, building_address varchar(75) REFERENCES buildings(address), equip_type varchar);")
+# #Insert example building in building table
+# cur.execute("INSERT INTO buildings (address, engineer) VALUES(%s, %s);", ("123 abc Dr Somecity, SomeState 12345", "Joe Schmo"))
+
+# conn.commit()
+# cur.execute("SELECT * FROM buildings")
+# #confirm addition
+# print(cur.fetchone())
+
+
+
+#cur.close()
+# conn.close()
+
+
+
+
